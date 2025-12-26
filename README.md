@@ -9,6 +9,11 @@ This API enables tax-harvesting calculations for Indian investors. Users can eit
 
 The response includes realized P&L summaries, LTCG exemption remaining, and recommended actions (tax-free gains and loss harvesting).
 
+**Summary of current coverage (high level):**
+
+- Equity support plus **MF/ETF-specific handling**, including **debt-tax regime considerations** (as per current product scope).
+- **PII and data retention controls** are in place (retention and deletion policies expanded as needed).
+
 ---
 
 ## 2. Base URL, Headers, and Auth
@@ -304,3 +309,27 @@ Bulk-submit multiple trade/position jobs in one request. Each job is equivalent 
   ]
 }
 ```
+
+---
+
+## 5. Future Plans (Roadmap)
+
+The following enhancements are planned (implementation in work). These will improve correctness, safety guardrails, and decision support:
+
+1. **Loss set-off engine (carry-forward aware)**  
+   Track and apply set-off rules across ST/LT gains and losses, including year-wise carry-forward logic and clear “tax saved this year vs carried forward” reporting.
+
+2. **Corporate actions support**  
+   Adjust quantities and cost basis for events like splits, bonuses, mergers/demergers (progressive rollout starting with common split/bonus cases).
+
+3. **Charges and taxes (net P&L)**  
+   Incorporate brokerage, STT, exchange fees, stamp duty, etc., to estimate **net** realized and unrealized P&L and improve tax-impact accuracy.
+
+4. **“Don’t sell” guardrails**  
+   Add risk and execution guardrails (e.g., concentration limits, liquidity flags, near-long-term warnings, and user-defined exclusions) to prevent recommendations that may be impractical or undesirable.
+
+5. **Rebalance-aware harvesting**  
+   Combine harvesting logic with target allocations so recommendations can simultaneously improve tax outcome and move the portfolio toward desired weights.
+
+6. **Scenario simulator**  
+   Enable “what-if” comparisons (sell now vs later, harvest X vs Y, different thresholds, different market prices) and provide delta outputs for tax impact and portfolio drift.
