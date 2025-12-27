@@ -11,6 +11,8 @@ The response includes realized P&L summaries, LTCG exemption remaining, and reco
 
 **Summary of current coverage (high level):**
 
+- Implements Indian capital gains tax treatment for Short-Term vs Long-Term classification and tax impact, across asset categories such as equity and debt (and can be extended to additional categories).
+- Tax rules (e.g., holding-period thresholds, tax rates, exemption limits, asset-type mappings) are configurable so they can be updated without changing client integrations.
 - Equity support plus **MF/ETF-specific handling**, including **debt-tax regime considerations** (as per current product scope).
 - **PII and data retention controls** are in place (retention and deletion policies expanded as needed).
 
